@@ -1,0 +1,25 @@
+.daily-menu-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 20rem;
+
+    h1{
+        text-transform: uppercase;
+    }
+
+    img{
+        width: 10rem;
+        height: 10rem;
+    }
+
+    .makeStyles-table-1{
+         min-width: 95%;
+
+         .MuiTableCell-head{
+             color: salmon;
+         }
+    }
+}

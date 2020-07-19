@@ -1,0 +1,27 @@
+.search-results-container{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+
+    .infinite-scroll-component{
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .fetch-more-pre-loader{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 25px;
+        color: salmon;
+    }
+}
+@import './each-restaurant/EachRestaurant';

@@ -1,0 +1,34 @@
+.restaurant-search-container{
+    width: 100%;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-image: url('./assets/search_background_image_two.jpg');
+    background-color: white;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    .restaurant-search-form{
+        margin-top: 5rem;
+        height: 50vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+
+        .MuiOutlinedInput-notchedOutline{
+            border-color: rgb(0, 0, 0);
+        }
+
+        .MuiInputBase-root.Mui-disabled{
+            border-color: rgb(87, 86, 86);
+        }
+        
+    }
+}
+
+
+@import './search_results/SearchResults';

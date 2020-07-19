@@ -1,0 +1,70 @@
+.restaurant-details-information{
+    width: 100%;
+    min-height: 25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .rating-details{
+        width: 60%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 5px;
+
+        p{
+            width: 60%;
+        }
+    }
+
+    #address{
+        width: 80%;
+    }
+
+    .working-hours{
+           width: 80%;
+           margin-top: 10px;
+    }
+
+    .cuisines{
+        margin: 10px 0;
+    }
+
+    span{
+        color: salmon;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .MuiSvgIcon-root{
+        color: salmon;
+    }
+
+    .restaurant-highlights{
+            width: 90%;
+            min-height: 5rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            margin: 10px 0;
+            
+            span{
+                margin-bottom: 5px;
+            }
+
+        p{
+            min-width: 4rem;
+            height: 2rem;
+            padding: 0 5px;
+            border: 1px solid darkgray;
+            background-color: darkgray;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    }

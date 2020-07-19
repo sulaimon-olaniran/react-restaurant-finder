@@ -1,0 +1,87 @@
+.reviews-container{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+
+    h1{
+        color: rgb(77, 75, 75);
+    }
+
+    
+    .each-review-container{
+        width: 17rem;
+        min-height: 7rem;
+        border: 2px solid rgb(245, 236, 214);
+        margin: 10px 0;
+        background-color: rgb(246, 239, 225);
+        box-shadow: 4px 4px 7px;
+
+        .user-details{
+            height: 5rem;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+
+            .user-image{
+                width: 15%;
+                margin: 0 8px;
+            }
+
+            .user-information{
+                width: 80%;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+
+                #name-and-rating{
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    p{
+                        margin-right: 10px;
+                    }
+                }
+
+                p{
+                    margin: 0px;
+                    padding: 0;
+                }
+            }
+
+            .MuiRating-readOnly{
+                font-size: 1rem;
+            }
+        }
+
+        .user-comment{
+            min-height: 5rem;
+            .MuiTypography-body1{
+                font-size: 0.8rem;
+            }
+        }
+    }
+
+    .fetch-more-pre-loader{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 25px;
+        color: salmon;
+    }
+
+    .infinite-scroll-component{
+        box-shadow: 0 10px 10px -5px;
+        width: 19rem;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        padding: 15px 0;
+    }
+}

@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html{
+    width: 100%;
+    min-height: 90%;
+}
+
+body{
+    font-family: 'Caveat', serif;
+}
+
+main{
+    margin-top: 10vh;
+    width: inherit;
+    min-height: 90vh;
+}
+
+h1, h2, h3, p {
+    text-align: center;
+    margin: 3px 0;
+    padding: 0 5px;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.pre-loader{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
