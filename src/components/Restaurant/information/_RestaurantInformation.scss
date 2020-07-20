@@ -4,56 +4,56 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-around;
+    color: rgb(216, 216, 216);
+
+    h1{
+        color: rgb(214, 214, 214);
+    }
+
+    h3{
+        min-width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgb(172, 78, 15);
+        text-transform: uppercase;
+    }
 
     .rating-details{
-        width: 60%;
+        width: 70%;
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
         justify-content: center;
         margin: 5px;
 
+    }
+
+    .restaurant-address, .phone-number, .working-hours, .cuisines{
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 5px 0;
+
         p{
-            width: 60%;
+            font-size: 1.2rem;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: 600;
         }
     }
 
-    #address{
-        width: 80%;
-    }
-
-    .working-hours{
-           width: 80%;
-           margin-top: 10px;
-    }
-
-    .cuisines{
-        margin: 10px 0;
-    }
-
-    span{
-        color: salmon;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .MuiSvgIcon-root{
-        color: salmon;
-    }
 
     .restaurant-highlights{
-            width: 90%;
+            width: 80%;
             min-height: 5rem;
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-around;
+            justify-content: center;
             align-items: center;
             margin: 10px 0;
-            
-            span{
-                margin-bottom: 5px;
-            }
 
         p{
             min-width: 4rem;
@@ -65,6 +65,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            border-radius: 5px;
+            margin: 3px;
         }
     }
+}
+
+@media(min-width :1200px){
+    .restaurant-details-information{
+        min-height: 40rem;
     }
+}

@@ -27,25 +27,42 @@ const RestaurantSearch = () => {
 
     const { promiseInProgress } = usePromiseTracker() //keeps track of api call
     const [country, setCountry] = useState('') //handles value of the country input value
-    const [avalablestates, setAvailableStates] = useState([]) //takes in state's area of selected country
+    const [availableStates, setAvailableStates] = useState([]) //takes in state's area of selected country
     const [state, setState] = useState('') //handles value of the state input value
     const [city, setCity] = useState('') //handles value of the city input value
     const [cities, setCities] = useState([]) //stores available cities data gotten from the api
-    const [fetchedCities, setFetchedCities ] = useState(false)
+    const [fetchedCities, setFetchedCities ] = useState(false) //to check if fetching of cities from api was sucessful
 
     const handleCountryChange = (event) => {
-        setCountry(event.target.value);
+        setCountry(event.target.value)
+        window.sessionStorage.setItem("country", JSON.stringify(event.target.value)) //storing of selected country to local storage
+        window.sessionStorage.removeItem('state') //remove previously saved state from local storage when country is changed
+        window.sessionStorage.removeItem('city')  //remove previously saved city from local storage when country is changed
     }
 
     const handleCityChange = (event) => {
-        setCity(event.target.value);
+        setCity(event.target.value)
+        window.sessionStorage.setItem("city", JSON.stringify(event.target.value))
     }
 
     const handleStatesChange = (event) => {
         setState(event.target.value)
+        window.sessionStorage.setItem("state", JSON.stringify(event.target.value))
+        window.sessionStorage.removeItem('city') //remove previously saved city from local storage when state is changed
     }
 
+    const stateArray = availableStates.length //keeps track of state array's length
+    const cityArray = cities.length //keeps track of city array's length
+
     useEffect(() => {
+        const storedCountry = JSON.parse(window.sessionStorage.getItem('country')) 
+        const storedState = JSON.parse(window.sessionStorage.getItem('state'))
+        const storedCity = JSON.parse(window.sessionStorage.getItem("city"))
+
+        setCountry(storedCountry !== null ? storedCountry : "") //filling input with users previous selected country 
+        stateArray > 0 && setState(storedState !== null ? storedState : "") //check if array is filled before placing data from local storage into state data to avoid warnings
+        cityArray > 0 && setCity(storedCity !== null ? storedCity : "")
+
         //mapping through country objects with the country input value
         for (const [key, value] of Object.entries(country_states)) {
             if (country === key) {
@@ -57,7 +74,7 @@ const RestaurantSearch = () => {
             const API_KEY = "01f7ef03fb111f0c6a709d256c8d35eb"
             setFetchedCities(false)
             trackPromise( //tracking the promise
-            axios.get(`https://developers.zomato.com/api/v2.1/cities?q=${state}&apikey=${API_KEY}`)
+            axios.get(`https://developers.zomato.com/api/v2.1/cities?q=${state}&apikey=${API_KEY}`) //gets the supported cities in zomato from selected state
                 .then(response => {
                     const data = response.data.location_suggestions
                     setCities(data)
@@ -70,7 +87,7 @@ const RestaurantSearch = () => {
         }
 
 
-    }, [state, country])
+    }, [state, country, stateArray, cityArray])
 
     //let disableCity 
 
@@ -114,9 +131,9 @@ const RestaurantSearch = () => {
                         disabled={disableStates}
                     >
                         {
-                            avalablestates.length > 1 && avalablestates.map((state, i) => {
+                            availableStates.length > 1 && availableStates.map((state, i) => {
                                 return (
-                                    <MenuItem value={state.name} key={state.abbreviation}>{state.name}</MenuItem>
+                                    <MenuItem value={state.name} key={i}>{state.name}</MenuItem>
                                 )
                             })
                         }

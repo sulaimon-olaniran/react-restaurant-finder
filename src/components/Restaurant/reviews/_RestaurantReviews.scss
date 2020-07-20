@@ -1,18 +1,18 @@
 .reviews-container{
     width: 100%;
-    min-height: 100vh;
+    min-height: 25rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 15px;
 
     h1{
-        color: rgb(77, 75, 75);
+        color: rgb(211, 211, 211);
     }
 
     
     .each-review-container{
-        width: 17rem;
+        width: 85%;
         min-height: 7rem;
         border: 2px solid rgb(245, 236, 214);
         margin: 10px 0;
@@ -44,12 +44,14 @@
                     align-items: center;
                     p{
                         margin-right: 10px;
+                        text-align: start;
                     }
                 }
 
                 p{
                     margin: 0px;
                     padding: 0;
+                    text-align: start;
                 }
             }
 
@@ -61,7 +63,7 @@
         .user-comment{
             min-height: 5rem;
             .MuiTypography-body1{
-                font-size: 0.8rem;
+                font-size: 0.9rem;
             }
         }
     }
@@ -74,14 +76,31 @@
         margin-bottom: 25px;
         color: salmon;
     }
-
-    .infinite-scroll-component{
-        box-shadow: 0 10px 10px -5px;
-        width: 19rem;
+    .infinite-scroll-component__outerdiv{
         display: flex;
-        flex-wrap: wrap;
         align-items: center;
         justify-content: center;
-        padding: 15px 0;
+        padding-bottom: 25px;
+        
+        .infinite-scroll-component{
+            box-shadow: 0 10px 10px -5px;
+            width: 90%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 0;
+            height: 500px !important;
+
+            p{
+                width: 100%;
+            }
+        }
     }
+}
+
+@media(min-width :1200px){
+  .reviews-container{
+      min-height: 40rem;
+  }
 }

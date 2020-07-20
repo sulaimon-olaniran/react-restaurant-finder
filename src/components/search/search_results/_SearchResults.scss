@@ -1,10 +1,22 @@
 .search-results-container{
     width: 100%;
-    min-height: 100vh;
+    min-height: 90vh;
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+    background-image: url('./assets/background_image.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: darkgray;
+    box-shadow: 3px 4px 5px 5px;
+    margin: 20px 0;
+
+    h2{
+        color: white;
+    }
 
     .infinite-scroll-component{
         width: 100%;
@@ -22,6 +34,33 @@
         justify-content: center;
         margin-bottom: 25px;
         color: salmon;
+    }
+}
+
+@media(min-width :720px){
+    .search-results-container{
+
+        .infinite-scroll-component__outerdiv{
+            width: 90%;
+        }
+    }
+}
+
+@media(min-width :920px){
+    .search-results-container{
+
+        .infinite-scroll-component__outerdiv{
+            width: 85%;
+        }
+    }
+}
+
+@media(min-width : 1200px){
+    .search-results-container{
+        width: 70%;
+        .infinite-scroll-component__outerdiv{
+            width: 90%;
+        }
     }
 }
 @import './each-restaurant/EachRestaurant';

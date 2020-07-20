@@ -1,5 +1,5 @@
 .each-restaurant-container{
-    width: 45%;
+    width: 11rem;
     height: 18rem;
     display: flex;
     flex-direction: column;
@@ -9,6 +9,8 @@
     margin: 15px 0;
     border-radius: 30px;
     overflow: hidden;
+    background-color: white;
+    box-shadow: 4px 4px 7px;
 
     .restaurant-image {
         width: 100%;
@@ -43,4 +45,11 @@
         margin-bottom: 10px;
     }
 
+}
+
+@media(min-width :1200px){
+    .each-restaurant-container{
+        margin: 0;
+        margin: 10px 40px;
+    }
 }

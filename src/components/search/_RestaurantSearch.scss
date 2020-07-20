@@ -30,5 +30,24 @@
     }
 }
 
+@media(min-width :720px){
+    .restaurant-search-container{
+         justify-content: center;
+        .restaurant-search-form{
+           height: 40vh;
+           margin-top: 0;
+        }
+    }
+}
+
+
+@media(min-width :1200px){
+   .restaurant-search-container{
+       width: 50%;
+       min-height: 80vh;
+   }
+}
+
+
 
 @import './search_results/SearchResults';

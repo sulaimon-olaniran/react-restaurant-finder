@@ -11,7 +11,7 @@ const SearchResults = ({ match }) => {
     const { promiseInProgress } = usePromiseTracker()
     const [restaurants, setRestaurants] = useState([])
     const [hasMoreData, setHasMoreData] = useState(true)
-    const [start, setStart] = useState(20)
+    const [start, setStart] = useState(20) //for fetching morre data from api, start point of data to be received
     const [cityId, setCityId] = useState('')
     const API_KEY = "01f7ef03fb111f0c6a709d256c8d35eb"
     const city = match.params.city
@@ -25,7 +25,7 @@ const SearchResults = ({ match }) => {
                     const id = response.data.location_suggestions[0].id
                     console.log(response.data.location_suggestions[0].id)
 
-                    //getting the restaurants with the city id gotten from previous api call
+                    //getting the restaurants with the city id gotten from previous api call from and returning results of 20
                     return axios.get(`https://developers.zomato.com/api/v2.1/search?entity_id=${id}&entity_type=city&start=${0}&count=20&sort=rating&order=desc&apikey=${API_KEY}`)
                         .then(res => {
                             const newData = res.data
@@ -37,13 +37,14 @@ const SearchResults = ({ match }) => {
 
     }, [city, API_KEY])
 
-
+    //fetchs more data from {start} point
     const fetchMoreData = () => { 
+        
         axios.get(`https://developers.zomato.com/api/v2.1/search?entity_id=${cityId}&entity_type=city&start=${start}&count=20&sort=rating&order=desc&apikey=${API_KEY}`)
             .then(res => {
                 console.log("fetched extra data")
                 console.log(cityId)
-                setStart(prev => prev + 20)
+                setStart(prev => prev + 20) // increases start point by 20 to fetch more data
                 const newData = res.data.restaurants
                 if (newData.length < 1) {
                     setHasMoreData(false)

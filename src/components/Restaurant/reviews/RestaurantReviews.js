@@ -9,7 +9,6 @@ const API_KEY = "01f7ef03fb111f0c6a709d256c8d35eb"
 
 const RestaurantReviews = ({ reviews, id, setReviews }) => {
     const [start, setStart] = useState(5)
-    
     const fetchMoreReviews = () =>{
         setStart(prev => prev + 5)
         axios.get(`https://developers.zomato.com/api/v2.1/reviews?res_id=${id}&start=${start}&count=100&apikey=${API_KEY}`)
@@ -25,7 +24,6 @@ const RestaurantReviews = ({ reviews, id, setReviews }) => {
                 dataLength={reviews.length}
                 next={fetchMoreReviews}
                 hasMore={start < 10}
-                height={600}
                 loader={<div className="fetch-more-pre-loader"><PropagateLoader color="salmon" /></div>}
                 endMessage={start >= 10 && <p style={{color:"orange"}}>No more Reviews</p>}
             >
