@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import EachRestaurant from './each-restaurant/EachRestaurant'
 import axios from 'axios'
 import { trackPromise } from 'react-promise-tracker'
@@ -13,6 +13,7 @@ const SearchResults = ({ match }) => {
     const [hasMoreData, setHasMoreData] = useState(true)
     const [start, setStart] = useState(20) //for fetching morre data from api, start point of data to be received
     const [cityId, setCityId] = useState('')
+    const mountedRef = useRef(true)
     const API_KEY = "01f7ef03fb111f0c6a709d256c8d35eb"
     const city = match.params.city
 
@@ -21,6 +22,7 @@ const SearchResults = ({ match }) => {
             //get's the city id in order to use the id to search for restaurants
             axios.get(`https://developers.zomato.com/api/v2.1/cities?q=${city}&apikey=${API_KEY}`)
                 .then(response => {
+                    if (!mountedRef.current) return null
                     setCityId(response.data.location_suggestions[0].id)
                     const id = response.data.location_suggestions[0].id
                     console.log(response.data.location_suggestions[0].id)
@@ -34,6 +36,10 @@ const SearchResults = ({ match }) => {
                         })
                 })
         )
+
+        return () => {
+            mountedRef.current = false
+        }
 
     }, [city, API_KEY])
 
